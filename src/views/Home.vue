@@ -1,12 +1,30 @@
 <template>
   <div class="home">
-    HOME
+    <div class="main">
+      <div class="phone">
+        <div class="box-hd">
+          <h3>手机</h3>
+        </div>
+        <div class="box-bd">
+          <div class="promo-list">
+            <router-link to="javascript:">
+              <img :src="$target + 'public/imgs/phone/phone.png'" alt>
+            </router-link>
+          </div>
+          <div class="list">
+            <my-list :list="phoneList" :is-more="true"></my-list>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import MyList from '@/components/MyList'
 export default {
   name: 'Home',
+  components: { MyList },
   data () {
     return {
       carousel: '', // 轮播图数据
