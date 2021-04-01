@@ -1,13 +1,21 @@
 <template>
   <div class="home">
-    <div class="main">
+    <div class="block">
+      <el-carousel height="460px">
+        <el-carousel-item v-for="item in carousel" :key="item.carousel_id">
+          <img style="height:460px;" :src="$target + item.imgPath" :alt="item.describes" />
+        </el-carousel-item>
+      </el-carousel>
+    </div>
+    <div class="main-box">
+      <div class="main">
       <div class="phone">
         <div class="box-hd">
-          <h3>手机</h3>
+          <h3 class="title">手机</h3>
         </div>
         <div class="box-bd">
           <div class="promo-list">
-            <router-link to="javascript:">
+            <router-link to="">
               <img :src="$target + 'public/imgs/phone/phone.png'" alt>
             </router-link>
           </div>
@@ -17,11 +25,13 @@
         </div>
       </div>
     </div>
+    </div>
   </div>
 </template>
 
 <script>
 import MyList from '@/components/MyList'
+
 export default {
   name: 'Home',
   components: { MyList },
@@ -83,3 +93,73 @@ export default {
   }
 }
 </script>
+
+<style scoped lang="scss">
+
+.main-box {
+  background-color: #f5f5f5;
+  padding-bottom: 20px;
+  .main {
+    margin: 0 auto;
+    max-width: 1300px;
+  }
+}
+
+.block {
+  margin: 0 auto;
+  max-width: 1225px;
+}
+
+.box-hd {
+  height: 58px;
+  margin: 20px 0 0 0;
+
+  .title {
+    font-size: 22px;
+    font-weight: 200;
+    line-height: 58px;
+    color: #333;
+  }
+}
+
+.box-bd {
+  height: 615px;
+
+  .promo-list {
+    float: left;
+    height: 615px;
+    width: 234px;
+
+    li {
+      z-index: 1;
+      width: 234px;
+      height: 300px;
+      margin-bottom: 14.5px;
+      -webkit-transition: all 0.2s linear;
+      transition: all 0.2s linear;
+
+      &:hover {
+        z-index: 2;
+        -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, .1);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, .1);
+        -webkit-transform: translate3d(0, -2px, 0);
+        transform: translate3d(0, -2px, 0);
+      }
+
+      img {
+        width: 234px;
+        height: 300px;
+      }
+    }
+    img {
+      width: 234px;
+    }
+  }
+
+  .list {
+    float: left;
+    height: 615px;
+    width: 991px;
+  }
+}
+</style>

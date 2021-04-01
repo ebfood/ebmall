@@ -67,6 +67,27 @@ export default {
 @import "assets/scss/base";
 @import "assets/scss/mixin";
 
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  list-style: none;
+}
+
+// 容器全局设置
+#app {
+  .el-header {
+    padding: 0;
+  }
+  .el-main {
+    min-height: 300px;
+    padding: 0;
+  }
+  .el-footer {
+    padding: 0;
+  }
+}
+
 .topbar {
   @include flex(flex-end, center);
   height: 40px;
@@ -88,15 +109,14 @@ export default {
 }
 
 .container {
-  min-height: 1080px;
   .el-header {
     .el-menu {
-      @include flex(flex-start);
       width: 1225px;
-      height: 60px;
+      margin: 0 auto;
       .search {
-        width: 300px;
-        padding-left: 100px;
+        margin-top: 10px;
+        width: 500px;
+        float: right;
       }
     }
   }
